@@ -30,6 +30,10 @@ dependencies:
   card_loading: ^0.2.2
   vertical_card_pager: ^1.5.0
   popup_card: ^0.1.0
+  add_to_cart_animation: ^1.0.1
+  pull_to_refresh: ^2.0.0
+  pull_to_refresh_flutter3: ^2.0.1
+  floating_frosted_bottom_bar: ^0.0.1
 
 
 dev_dependencies:

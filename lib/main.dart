@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:interceptors/app/widgets/test.dart';
 
 import 'app/screens/b_nav/main_screen.dart';
 
 void main() {
-  runApp(ProviderScope(child: const MyApp()));
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    super.key,
+  });
 
   // This widget is the root of your application.
   @override
@@ -16,10 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Products',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        fontFamily: 'Cairo'
-      ),
+      theme: ThemeData(primarySwatch: Colors.teal, fontFamily: 'Cairo'),
       home: const MainScreen(),
     );
   }

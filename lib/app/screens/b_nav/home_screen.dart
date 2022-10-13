@@ -28,16 +28,13 @@ class HomeScreen extends ConsumerWidget {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 50),
                       width: double.infinity,
                       height: 200,
-                      color: Colors.transparent,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 20,
-                        ),
-                        child: Image.network(
-                          products.image,
-                        ),
+                      child: Image.network(
+                        isAntiAlias: true,
+                        products.image,
                       ),
                     );
                   },
@@ -82,7 +79,7 @@ class HomeScreen extends ConsumerWidget {
                           width: 70,
                           decoration: BoxDecoration(
                             border: Border.all(width: 2),
-                            shape: BoxShape.circle,
+                            borderRadius: BorderRadius.circular(20)
                           ),
                           child: Center(
                             child: Padding(
@@ -90,7 +87,8 @@ class HomeScreen extends ConsumerWidget {
                               child: Text(
                                 cats[index].substring(0, 7),
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),

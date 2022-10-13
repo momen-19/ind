@@ -1,214 +1,133 @@
-// import 'package:flutter/material.dart';
-//
-//
-// class Test extends StatefulWidget {
-//   const Test({Key? key}) : super(key: key);
-//
-//   @override
-//   State<Test> createState() => _TestState();
-// }
-//
-// class _TestState extends State<Test> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: state.when(
-//         data: (products) => Padding(
-//           padding: const EdgeInsets.symmetric(
-//             horizontal: 20,
-//             vertical: 10,
-//           ),
-//           child: Column(
-//             children: [
-//               const SizedBox(
-//                 height: 15,
-//               ),
-//               const Text(
-//                 'New Offers',
-//                 style: TextStyle(
-//                   fontWeight: FontWeight.bold,
-//                   fontSize: 22,
-//                 ),
-//               ),
-//               Padding(
-//                 padding: const EdgeInsets.symmetric(
-//                   vertical: 10.0,
-//                 ),
-//                 child: CarouselSlider(
-//                   options: CarouselOptions(
-//                     height: 250.0,
-//                     autoPlay: true,
-//                   ),
-//                   items: products.map((products) {
-//                     return Builder(
-//                       builder: (BuildContext context) {
-//                         return Container(
-//                           padding: const EdgeInsets.symmetric(
-//                             horizontal: 15,
-//                             vertical: 15,
-//                           ),
-//                           margin: const EdgeInsets.symmetric(
-//                             horizontal: 5.0,
-//                             vertical: 10,
-//                           ),
-//                           decoration: BoxDecoration(
-//                             color: Colors.white,
-//                             borderRadius: BorderRadius.circular(20),
-//                             boxShadow: [
-//                               BoxShadow(
-//                                 color: Colors.blue.shade200,
-//                                 blurRadius: 0.5,
-//                                 offset: const Offset(
-//                                   10,
-//                                   1,
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                           child: Column(
-//                             children: [
-//                               Expanded(
-//                                 child: Padding(
-//                                   padding: const EdgeInsets.symmetric(
-//                                     vertical: 10,
-//                                     horizontal: 10,
-//                                   ),
-//                                   child: Image.network(
-//                                     products.image,
-//                                     height: 220,
-//                                     width: 230,
-//                                     fit: BoxFit.cover,
-//                                   ),
-//                                 ),
-//                               ),
-//                               const SizedBox(
-//                                 height: 10,
-//                               ),
-//                               Text(
-//                                 products.title,
-//                                 overflow: TextOverflow.ellipsis,
-//                                 maxLines: 2,
-//                                 style: const TextStyle(
-//                                     fontSize: 16.0,
-//                                     color: Colors.blue,
-//                                     fontWeight: FontWeight.bold
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                         );
-//                       },
-//                     );
-//                   }).toList(),
-//                 ),
-//               ),
-//               const SizedBox(
-//                 height: 15,
-//               ),
-//               const Text(
-//                 'New Products',
-//                 style: TextStyle(
-//                   fontWeight: FontWeight.bold,
-//                   fontSize: 22,
-//                 ),
-//               ),
-//               Expanded(
-//                 child: GridView.builder(
-//                   itemCount: products.length,
-//                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-//                     crossAxisCount: 2,
-//                     crossAxisSpacing: 10,
-//                     mainAxisSpacing: 10,
-//                   ),
-//                   itemBuilder: (context, index) => Card(
-//                     child: Padding(
-//                       padding: const EdgeInsets.all(8.0),
-//                       child: SizedBox(
-//                         height: 300,
-//                         child: Column(
-//                           children: [
-//                             Expanded(
-//                               flex: 2,
-//                               child: Image.network(
-//                                 products[index].image,
-//                                 width: 100,
-//                                 fit: BoxFit.fill,
-//                                 height: 200,
-//                               ),
-//                             ),
-//                             const SizedBox(
-//                               height: 5,
-//                             ),
-//                             Expanded(
-//                               child: Row(
-//                                 children: [
-//                                   Expanded(
-//                                     child: Text(
-//                                       products[index].title,
-//                                       maxLines: 2,
-//                                       style: const TextStyle(
-//                                         fontWeight: FontWeight.bold,
-//                                       ),
-//                                       overflow: TextOverflow.ellipsis,
-//                                     ),
-//                                   ),
-//                                   Text(
-//                                     "${products[index].price.round()}\$",
-//                                     style: const TextStyle(
-//                                       fontWeight: FontWeight.bold,
-//                                       fontSize: 19,
-//                                       color: Colors.redAccent,
-//                                     ),
-//                                   ),
-//                                 ],
-//                               ),
-//                             ),
-//                             const SizedBox(
-//                               height: 5,
-//                             ),
-//                             Row(
-//                               mainAxisAlignment: MainAxisAlignment.start,
-//                               children: [
-//                                 ElevatedButton(
-//                                   style: ElevatedButton.styleFrom(
-//                                       elevation: 0,
-//                                       backgroundColor: Colors.red),
-//                                   onPressed: () {
-//                                     Navigator.push(
-//                                       context,
-//                                       MaterialPageRoute(
-//                                         builder: (context) => ProviderScope(
-//                                           overrides: [
-//                                             detailsProduct.overrideWithValue(
-//                                               products[index],
-//                                             ),
-//                                           ],
-//                                           child: const ProductDetailsPage(),
-//                                         ),
-//                                       ),
-//                                     );
-//                                   },
-//                                   child: const Text(
-//                                     'Show Details',
-//                                   ),
-//                                 ),
-//                               ],
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//         error: (error, stackTrace) => Text(error.toString()),
-//         loading: () => const Center(
-//           child: CircularProgressIndicator(),
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'package:floating_frosted_bottom_bar/app/frosted_bottom_bar.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+class Test extends StatefulWidget {
+  const Test({Key? key}) : super(key: key);
+
+  @override
+  State<Test> createState() => _TestState();
+}
+
+class _TestState extends State<Test> with SingleTickerProviderStateMixin {
+  late int currentPage;
+  late TabController tabController;
+  final List<Color> colors = [
+    Colors.blue,
+    Colors.blue,
+    Colors.blue,
+    Colors.blue,
+    Colors.blue
+  ];
+  void changePage(int newPage) {
+    setState(() {
+      currentPage = newPage;
+    });
+  }
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+  @override
+  void initState() {
+    currentPage = 0;
+    tabController = TabController(length: 5, vsync: this);
+    tabController.animation!.addListener(
+          () {
+        final value = tabController.animation!.value.round();
+        if (value != currentPage && mounted) {
+          changePage(value);
+        }
+      },
+    );
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Test'),
+      ),
+      body: FrostedBottomBar(
+        opacity: 0.6,
+        sigmaX: 5,
+        sigmaY: 5,
+        borderRadius: BorderRadius.circular(500),
+        duration: const Duration(milliseconds: 800),
+        hideOnScroll: true,
+        body: (context, controller) => TabBarView(
+          controller: tabController,
+          dragStartBehavior: DragStartBehavior.down,
+          physics: const BouncingScrollPhysics(),
+          children: colors
+              .map(
+                (e) => ListView.builder(
+                  itemCount: 5,
+                  controller: controller,
+                  itemBuilder: (context, index) {
+                    return const Card(child: FittedBox(child: Text('123')));
+                  },
+                ),
+              )
+              .toList(),
+        ),
+        child: TabBar(
+          indicatorPadding: EdgeInsets.fromLTRB(6, 0, 6, 0),
+          controller: tabController,
+          indicator: const UnderlineTabIndicator(
+            borderSide: BorderSide(color: Colors.blue, width: 4),
+            insets: EdgeInsets.fromLTRB(16, 0, 16, 8),
+          ),
+          tabs: [
+            TabsIcon(
+                icons: Icons.home,
+                color: currentPage == 0 ? colors[0] : Colors.white.withOpacity(0.5)),
+            TabsIcon(
+                icons: Icons.search,
+                color: currentPage == 1 ? colors[1] : Colors.white),
+            TabsIcon(
+                icons: Icons.queue_play_next,
+                color: currentPage == 2 ? colors[2] : Colors.white),
+            TabsIcon(
+                icons: Icons.file_download,
+                color: currentPage == 3 ? colors[3] : Colors.white),
+            TabsIcon(
+                icons: Icons.menu,
+                color: currentPage == 4 ? colors[4] : Colors.white),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TabsIcon extends StatelessWidget {
+  final Color color;
+  final double height;
+  final double width;
+  final IconData icons;
+
+  const TabsIcon(
+      {Key? key,
+      this.color = Colors.white,
+      this.height = 60,
+      this.width = 50,
+      required this.icons})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height,
+      width: width,
+      child: Center(
+        child: Icon(
+          icons,
+          color: color,
+        ),
+      ),
+    );
+    ;
+  }
+}

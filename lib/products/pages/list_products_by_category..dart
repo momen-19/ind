@@ -38,18 +38,40 @@ class ListProductsByCat extends ConsumerWidget {
                         ),
                       );
                     },
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(child: Text(products[index].title,style: const TextStyle(fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),)),
-                        Text(products[index].category),
-                      ],
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    title: Text(
+                      products[index].title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                    leading: Image.network(products[index].image,width: 80,fit: BoxFit.fill),
+                    leading: Image.network(products[index].image,
+                        width: 80, fit: BoxFit.fill),
                     subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Text("${products[index].price.round()}\$",style: const TextStyle(color: Colors.redAccent,fontWeight: FontWeight.bold,fontSize: 18)),
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "${products[index].price.round()}\$",
+                            style: const TextStyle(
+                              color: Colors.redAccent,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            products[index].category,
+                            style: const TextStyle(
+                              color: Colors.teal,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],
@@ -58,7 +80,7 @@ class ListProductsByCat extends ConsumerWidget {
           },
         ),
         error: (error, stackTrace) => Text(error.toString()),
-        loading: () => Center(child: const CircularProgressIndicator()),
+        loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }
