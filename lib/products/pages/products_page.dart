@@ -17,66 +17,61 @@ class ProductsPage extends ConsumerWidget {
           child: CircularProgressIndicator(),
         ),
         error: (error, stack) => Center(child: Text(error.toString())),
-        data: (products) => ListView.builder(
+        data: (products) => ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+          separatorBuilder: (context, index) => Divider(
+            color: Colors.teal.withOpacity(0.3),
+            thickness: 1.5,
+          ),
           itemCount: products.length,
           itemBuilder: (context, index) {
-            return Card(
-              child: Column(
-                children: [
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProviderScope(
-                            overrides: [
-                              detailsProduct.overrideWithValue(
-                                products[index],
-                              ),
-                            ],
-                            child: const ProductDetailsPage(),
-                          ),
-                        ),
-                      );
-                    },
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 10,
-                    ),
-                    title: Text(
-                      products[index].title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    leading: Image.network(
-                      products[index].image,
-                      width: 80,
-                      fit: BoxFit.fill,
-                    ),
-                    subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${products[index].price.round()}\$",
-                            style: const TextStyle(
-                              color: Colors.redAccent,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
+            return Column(
+              children: [
+                ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProviderScope(
+                          overrides: [
+                            detailsProduct.overrideWithValue(
+                              products[index],
                             ),
-                          ),
-                          Text(
-                            products[index].category,
-                          ),
-                        ],
+                          ],
+                          child: const ProductDetailsPage(),
+                        ),
                       ),
+                    );
+                  },
+                  title: Text(
+                    products[index].title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                ],
-              ),
+                  leading: Image.network(
+                    products[index].image,
+                    width: 70,
+                  ),
+                  subtitle: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "${products[index].price.round()}\$",
+                        style: const TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        products[index].category,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             );
           },
         ),

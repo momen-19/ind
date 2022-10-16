@@ -39,7 +39,9 @@ class ListProductsByCat extends ConsumerWidget {
                       );
                     },
                     contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
                     title: Text(
                       products[index].title,
                       style: const TextStyle(
@@ -80,7 +82,9 @@ class ListProductsByCat extends ConsumerWidget {
           },
         ),
         error: (error, stackTrace) => Text(error.toString()),
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

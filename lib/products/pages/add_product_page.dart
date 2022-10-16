@@ -14,8 +14,8 @@ class AddProductPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Add Product'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,6 +46,9 @@ class AddProductPage extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.black),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             const Text('Price', style: TextStyle(fontSize: 18)),
             const SizedBox(

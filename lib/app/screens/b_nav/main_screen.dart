@@ -1,3 +1,4 @@
+import 'package:animate_icons/animate_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:interceptors/app/models/bn_screen.dart';
 import 'package:interceptors/app/screens/b_nav/categories_screen.dart';
@@ -16,6 +17,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _index = 0;
+  AnimateIconController controller = AnimateIconController();
+
   final List<BnScreen> _screens = [
     BnScreen(screens: const HomeScreen(), title: 'Home'),
     BnScreen(screens: const CategoriesScreen(), title: 'Categories'),
@@ -58,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
          selectedItemColor: Colors.teal.shade900.withOpacity(0.8),
         unselectedItemColor: Colors.teal.shade50,
         type: BottomNavigationBarType.fixed,
-        items: const [
+        items:  const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,

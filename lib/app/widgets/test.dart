@@ -1,4 +1,6 @@
+import 'package:animation_search_bar/animation_search_bar.dart';
 import 'package:floating_frosted_bottom_bar/app/frosted_bottom_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -45,59 +47,65 @@ class _TestState extends State<Test> with SingleTickerProviderStateMixin {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Test'),
-      ),
-      body: FrostedBottomBar(
-        opacity: 0.6,
-        sigmaX: 5,
-        sigmaY: 5,
-        borderRadius: BorderRadius.circular(500),
-        duration: const Duration(milliseconds: 800),
-        hideOnScroll: true,
-        body: (context, controller) => TabBarView(
-          controller: tabController,
-          dragStartBehavior: DragStartBehavior.down,
-          physics: const BouncingScrollPhysics(),
-          children: colors
-              .map(
-                (e) => ListView.builder(
-                  itemCount: 5,
-                  controller: controller,
-                  itemBuilder: (context, index) {
-                    return const Card(child: FittedBox(child: Text('123')));
-                  },
+    var controller = TextEditingController();
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 10),
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CupertinoButton(
+                  color: Colors.blueAccent,
+                  pressedOpacity: .75,
+                  child: Text('SideMenuAnimation'),
+                  onPressed: () => _goToExample(context, SideMenuScreen()),
                 ),
-              )
-              .toList(),
-        ),
-        child: TabBar(
-          indicatorPadding: EdgeInsets.fromLTRB(6, 0, 6, 0),
-          controller: tabController,
-          indicator: const UnderlineTabIndicator(
-            borderSide: BorderSide(color: Colors.blue, width: 4),
-            insets: EdgeInsets.fromLTRB(16, 0, 16, 8),
+                const SizedBox(height: 20),
+                CupertinoButton(
+                  color: Colors.blueAccent,
+                  pressedOpacity: .75,
+                  child: const Text('SideMenuAnimation.builder'),
+                  onPressed: () => _goToExample(context, SideMenuBuilderScreen()),
+                ),
+              ],
+            ),
           ),
-          tabs: [
-            TabsIcon(
-                icons: Icons.home,
-                color: currentPage == 0 ? colors[0] : Colors.white.withOpacity(0.5)),
-            TabsIcon(
-                icons: Icons.search,
-                color: currentPage == 1 ? colors[1] : Colors.white),
-            TabsIcon(
-                icons: Icons.queue_play_next,
-                color: currentPage == 2 ? colors[2] : Colors.white),
-            TabsIcon(
-                icons: Icons.file_download,
-                color: currentPage == 3 ? colors[3] : Colors.white),
-            TabsIcon(
-                icons: Icons.menu,
-                color: currentPage == 4 ? colors[4] : Colors.white),
-          ],
         ),
       ),
+    );
+  }
+  void _goToExample(BuildContext context, Widget newPage) =>
+      Navigator.push(context, MaterialPageRoute(builder: (_) => newPage));
+}
+
+class SideMenuBuilderScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 10,
+      height: 10,
+      color: Colors.teal,
+    );
+  }
+}
+class SideMenuScreen extends StatelessWidget {
+  const SideMenuScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('123'),
+        Text('123'),
+        Text('123'),
+        Text('123'),
+        Text('123'),
+        Text('123'),
+      ],
     );
   }
 }
