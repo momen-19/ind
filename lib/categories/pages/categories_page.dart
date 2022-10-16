@@ -11,6 +11,7 @@ class CategoriesPage extends ConsumerWidget {
     return Scaffold(
       body: ref.watch(categoriesListProvider).when(
             data: (categories) => ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               itemCount: categories.length,
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
@@ -31,11 +32,11 @@ class CategoriesPage extends ConsumerWidget {
                 title: Text(
                   categories[index].toUpperCase().characters.join(' '),
                 ),
-                trailing: const Icon(Icons.category_outlined),
+                trailing: const Icon(Icons.category_outlined,color: Colors.teal),
               ),
             ),
             error: (error, stackTrace) => Text(
-              error.toString().toUpperCase().characters.join('123'),
+              error.toString(),
             ),
             loading: () => const Center(
               child: Center(

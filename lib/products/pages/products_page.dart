@@ -67,6 +67,9 @@ class ProductsPage extends ConsumerWidget {
                       ),
                       Text(
                         products[index].category,
+                        style: const TextStyle(
+                          color: Colors.teal
+                        ),
                       ),
                     ],
                   ),

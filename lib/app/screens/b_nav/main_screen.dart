@@ -6,7 +6,7 @@ import 'package:interceptors/app/screens/b_nav/home_screen.dart';
 import 'package:interceptors/app/screens/b_nav/search_screen.dart';
 import 'package:interceptors/products/pages/add_product_page.dart';
 
-import 'Products_screen.dart';
+import 'products_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
