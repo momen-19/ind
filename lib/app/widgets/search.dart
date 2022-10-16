@@ -49,7 +49,7 @@ class _SearchWidState extends State<SearchWid> {
               child: SearchableList<ProductModel>(
                 style: const TextStyle(fontSize: 25),
                 onPaginate: () async {
-                  await Future.delayed(const Duration(milliseconds: 1000));
+                  await Future.delayed(const Duration(milliseconds: 200));
                   setState(
                     () {
                       prod.addAll(
@@ -140,75 +140,70 @@ class ProductItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(products);
-    return state.when(
-      loading: () => const Text(''),
-      error: (error, stack) => Center(child: Text(error.toString())),
-      data: (products) => ListView.builder(
-        shrinkWrap: true,
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Expanded(
-              child: Column(
-                children: [
-                  ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProviderScope(
-                            overrides: [
-                              detailsProduct.overrideWithValue(
-                                products[index],
-                              ),
-                            ],
-                            child: const ProductDetailsPage(),
-                          ),
-                        ),
-                      );
-                    },
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 10,
-                    ),
-                    title: Text(
-                      products[index].title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    leading: Image.network(
-                      products[index].image,
-                      width: 80,
-                      fit: BoxFit.fill,
-                    ),
-                    subtitle: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "${products[index].price.round()}\$",
-                            style: const TextStyle(
-                              color: Colors.redAccent,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                          Text(
-                            products[index].category,
+    return Column(
+      children: [
+        state.when(
+          loading: () => const Text(''),
+          error: (error, stack) => Center(child: Text(error.toString())),
+          data: (products) => ListView.separated(
+            separatorBuilder: (context, index) => Divider(
+              thickness: 1.5,
+              color: Colors.teal.withOpacity(0.3),
+            ),
+            shrinkWrap: true,
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProviderScope(
+                        overrides: [
+                          detailsProduct.overrideWithValue(
+                            products[index],
                           ),
                         ],
+                        child: const ProductDetailsPage(),
                       ),
                     ),
+                  );
+                },
+                title: Text(
+                  products[index].title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+                ),
+                leading: Image.network(
+                  products[index].image,
+                  width: 70,
+                ),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "${products[index].price.round()}\$",
+                        style: const TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Text(
+                        products[index].category,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

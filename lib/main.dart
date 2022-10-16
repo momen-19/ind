@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:interceptors/app/screens/lunch_screen.dart';
 import 'package:interceptors/app/widgets/test.dart';
 
 import 'app/screens/b_nav/main_screen.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Products',
       theme: ThemeData(primarySwatch: Colors.teal, fontFamily: 'Cairo'),
-      home: const MainScreen(),
+      home: const LunchScreen(),
     );
   }
 }

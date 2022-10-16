@@ -17,6 +17,7 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   dio: ^4.0.6
   http: ^0.13.5
+  flutter_image_slideshow: ^0.1.4
   json_annotation: ^4.6.0
   shared_preferences: ^2.0.15
   cupertino_icons: ^1.0.5
@@ -29,14 +30,19 @@ dependencies:
   searchable_listview: ^2.1.1
   card_loading: ^0.2.2
   vertical_card_pager: ^1.5.0
+  ticker_text: ^2.0.0
   popup_card: ^0.1.0
   add_to_cart_animation: ^1.0.1
   pull_to_refresh: ^2.0.0
   pull_to_refresh_flutter3: ^2.0.1
+  icon_decoration: ^1.0.1
   floating_frosted_bottom_bar: ^0.0.1
   animate_icons: ^2.0.0
   animation_search_bar: ^0.0.9
   side_menu_animation: ^1.1.0
+  auto_size_text: ^3.0.0
+  firebase_messaging: ^13.1.0
+  flutter_local_notifications: ^12.0.2
 
 
 dev_dependencies:

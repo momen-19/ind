@@ -1,12 +1,13 @@
 import 'package:animate_icons/animate_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:icon_decoration/icon_decoration.dart';
 import 'package:interceptors/app/models/bn_screen.dart';
 import 'package:interceptors/app/screens/b_nav/categories_screen.dart';
 import 'package:interceptors/app/screens/b_nav/home_screen.dart';
 import 'package:interceptors/app/screens/b_nav/search_screen.dart';
 import 'package:interceptors/products/pages/add_product_page.dart';
 
-import 'products_screen.dart';
+import 'Products_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -26,14 +27,14 @@ class _MainScreenState extends State<MainScreen> {
     BnScreen(screens: const ProductScreen(), title: 'Products'),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
         elevation: 0,
-        title: Text(_screens[_index].title,style: const TextStyle(color: Colors.white)),
+        title: Text(_screens[_index].title,
+            style: const TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: [
           Visibility(
@@ -55,36 +56,79 @@ class _MainScreenState extends State<MainScreen> {
         ],
       ),
       body: _screens[_index].screens,
-      bottomNavigationBar: BottomNavigationBar(backgroundColor: Colors.teal,
-
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
         elevation: 0,
-         selectedItemColor: Colors.teal.shade900.withOpacity(0.8),
-        unselectedItemColor: Colors.teal.shade50,
+        selectedItemColor: Colors.teal,
+        unselectedItemColor: Colors.teal.shade300,
         type: BottomNavigationBarType.fixed,
-        items:  const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home),
             label: 'Home',
+            activeIcon: DecoratedIcon(
+              icon: Icon(Icons.home, color: Colors.teal),
+              decoration: IconDecoration(
+                shadows: [Shadow(blurRadius: 3, offset: Offset(3, 0))],
+              ),
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(
+            icon: const Icon(
               Icons.category,
             ),
             label: 'Categories',
+            activeIcon: DecoratedIcon(
+              icon: const Icon(Icons.category, color: Colors.teal),
+              decoration: IconDecoration(
+                shadows: [
+                  Shadow(
+                    color: Colors.teal.shade900,
+                    blurRadius: 3,
+                    offset: const Offset(3, 0),
+                  ),
+                ],
+              ),
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
+           BottomNavigationBarItem(
+            icon: const Icon(
               Icons.search_rounded,
             ),
             label: 'Search',
+            activeIcon: DecoratedIcon(
+              icon: const Icon(Icons.search_rounded, color: Colors.teal),
+              decoration: IconDecoration(
+                shadows: [
+                  Shadow(
+                    color: Colors.teal.shade900,
+                    blurRadius: 3,
+                    offset: const Offset(3, 0),
+                  ),
+                ],
+              ),
+            ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(
+            icon: const Icon(
               Icons.production_quantity_limits_rounded,
             ),
             label: 'Products',
+            activeIcon: DecoratedIcon(
+              icon: const Icon(Icons.production_quantity_limits_rounded, color: Colors.teal),
+              decoration: IconDecoration(
+                shadows: [
+                  Shadow(
+                    color: Colors.teal.shade900,
+                    blurRadius: 3,
+                    offset: const Offset(3, 0),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
         currentIndex: _index,
