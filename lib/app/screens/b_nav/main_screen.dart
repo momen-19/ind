@@ -21,10 +21,10 @@ class _MainScreenState extends State<MainScreen> {
   AnimateIconController controller = AnimateIconController();
 
   final List<BnScreen> _screens = [
-    BnScreen(screens: const HomeScreen(), title: 'Home'),
-    BnScreen(screens: const CategoriesScreen(), title: 'Categories'),
-    BnScreen(screens: const SearchScreen(), title: 'Search'),
-    BnScreen(screens: const ProductsScreen(), title: 'Products'),
+    BnScreen(screens: const HomeScreen()),
+    BnScreen(screens: const CategoriesScreen()),
+    BnScreen(screens: const SearchScreen()),
+    BnScreen(screens: const ProductsScreen()),
   ];
 
   @override
