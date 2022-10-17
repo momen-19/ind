@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:interceptors/products/product_controller.dart';
 
+import '../product_details_page.dart';
+
 class CarouselSliderWid extends ConsumerWidget {
   const CarouselSliderWid({Key? key}) : super(key: key);
 
@@ -22,8 +24,25 @@ class CarouselSliderWid extends ConsumerWidget {
               horizontalOffset: 50,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: Image.network(
-                  products[index].image,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProviderScope(
+                          overrides: [
+                            detailsProduct.overrideWithValue(
+                              products[index],
+                            ),
+                          ],
+                          child: const ProductDetailsPage(),
+                        ),
+                      ),
+                    );
+                  },
+                  child: Image.network(
+                    products[index].image,
+                  ),
                 ),
               ),
             ),

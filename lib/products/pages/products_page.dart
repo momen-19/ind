@@ -16,6 +16,7 @@ class ProductsPage extends ConsumerWidget {
     final state = ref.watch(products);
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text('Products'),
         leading: IconButton(onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => AddProductPage(),));

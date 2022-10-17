@@ -9,6 +9,7 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text('Categories'),
       ),
       body: CategoriesPage(),
