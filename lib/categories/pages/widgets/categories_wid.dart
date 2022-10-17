@@ -54,7 +54,8 @@ class CategoriesWid extends ConsumerWidget {
                               style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  letterSpacing: 1.2),
+                                  letterSpacing: 1.2,
+                              ),
                             ),
                           ),
                         ),
