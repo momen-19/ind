@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:interceptors/app/screens/b_nav/main_screen.dart';
 
 class LunchScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _LunchScreenState extends State<LunchScreen> {
   void initState() {
     Future.delayed(
         const Duration(
-          seconds: 3,
+          seconds: 2,
         ), () {
       Navigator.push(
         context,
@@ -29,26 +30,18 @@ class _LunchScreenState extends State<LunchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal,
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              Icons.shopping_cart_outlined,
-              color: Colors.white,
-              size: 32,
+      body: SpinKitRotatingCircle(
+
+        itemBuilder: (BuildContext context, int index) {
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.teal.shade900,
             ),
-            SizedBox(width: 5),
-            Text(
-              'Shop App',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-              ),
-            ),
-          ],
-        ),
+            child: Image.network('https://raw.githubusercontent.com/jogboms/flutter_spinkit/master/screenshots/spinning-lines.gif'),
+          );
+        },
+        size: 50.0,
       ),
     );
   }
