@@ -1,12 +1,9 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:interceptors/network/api.dart';
 import 'package:interceptors/products/models/product_model.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
-
-
 part 'product_remote_data_source.g.dart';
 
 @RestApi()

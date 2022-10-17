@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:interceptors/products/product_controller.dart';
-
 import '../product_details_page.dart';
 
 class CarouselSliderWid extends ConsumerWidget {

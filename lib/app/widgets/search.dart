@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:interceptors/products/models/product_model.dart';
 import 'package:searchable_listview/searchable_listview.dart';
-
 import '../../products/pages/product_details_page.dart';
 import '../../products/product_controller.dart';
 

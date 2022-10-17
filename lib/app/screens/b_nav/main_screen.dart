@@ -5,8 +5,6 @@ import 'package:interceptors/app/models/bn_screen.dart';
 import 'package:interceptors/app/screens/b_nav/categories_screen.dart';
 import 'package:interceptors/app/screens/b_nav/home_screen.dart';
 import 'package:interceptors/app/screens/b_nav/search_screen.dart';
-import 'package:interceptors/products/pages/add_product_page.dart';
-
 import 'Products_screen.dart';
 
 class MainScreen extends StatefulWidget {
