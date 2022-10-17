@@ -102,7 +102,7 @@ class ProductsWid extends ConsumerWidget {
         ),
       ),
       error: (error, stackTrace) => Text(error.toString()),
-      loading: () => const Center(
+      loading: () =>  Center(
         child: CircularProgressIndicator(),
       ),
     );

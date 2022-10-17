@@ -40,6 +40,7 @@ dependencies:
   icon_decoration: ^1.0.1
   floating_frosted_bottom_bar: ^0.0.1
   animate_icons: ^2.0.0
+  animated_bottom_navigation_bar: ^1.1.0
   animation_search_bar: ^0.0.9
   side_menu_animation: ^1.1.0
   auto_size_text: ^3.0.0

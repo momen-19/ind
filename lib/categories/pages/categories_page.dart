@@ -13,6 +13,7 @@ class CategoriesPage extends ConsumerWidget {
       body: ref.watch(categoriesListProvider).when(
             data: (categories) => AnimationLimiter(
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 itemCount: categories.length,
                 itemBuilder: (context, index) => AnimationConfiguration.staggeredList(

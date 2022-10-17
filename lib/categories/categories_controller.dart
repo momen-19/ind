@@ -4,8 +4,11 @@ import 'package:http/http.dart' as http;
 
 final categoriesListProvider =
     FutureProvider.autoDispose<List<String>>((ref) async {
-  http.Response response =
-      await http.get(Uri.parse('https://fakestoreapi.com/products/categories'));
+  http.Response response = await http.get(
+    Uri.parse(
+      'https://fakestoreapi.com/products/categories',
+    ),
+  );
   final data = jsonDecode(response.body);
   final categories =
       data.map<String>((category) => category.toString()).toList();
@@ -13,4 +16,4 @@ final categoriesListProvider =
 });
 
 final selectedCategoryProvider =
-Provider.autoDispose<String>((ref) => ref.state);
+    Provider.autoDispose<String>((ref) => ref.state);

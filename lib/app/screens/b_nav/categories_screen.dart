@@ -9,9 +9,9 @@ class CategoriesScreen extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('Categories'),
+        title: const Text('Categories'),
       ),
-      body: CategoriesPage(),
+      body: const CategoriesPage(),
     );
   }
 }

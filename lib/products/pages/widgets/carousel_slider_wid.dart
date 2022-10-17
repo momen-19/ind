@@ -47,7 +47,13 @@ class CarouselSliderWid extends ConsumerWidget {
             ),
           ),
           error: (error, stackTrace) => Text(error.toString()),
-          loading: () => const Center(child: CircularProgressIndicator()),
+          loading: () => Center(
+            child: Image.asset(
+              'assets/images/ajax-loader-preview.png',
+              height: 200,
+              width: 200,
+            ),
+          ),
         ),
         options: CarouselOptions(
           height: 280,

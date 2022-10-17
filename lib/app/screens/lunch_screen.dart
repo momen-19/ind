@@ -36,6 +36,7 @@ class _LunchScreenState extends State<LunchScreen> {
           return DecoratedBox(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
+              border: Border.all(color: Colors.black),
               color: Colors.teal.shade900,
             ),
             child: Image.network('https://raw.githubusercontent.com/jogboms/flutter_spinkit/master/screenshots/spinning-lines.gif'),
