@@ -6,6 +6,10 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SearchWid();
+    return Scaffold(      appBar: AppBar(
+      title: const Text('Search'),
+      leading: IconButton(onPressed: (){
+      },icon: const Icon(Icons.filter_alt_outlined)),
+    ),body: const SearchWid());
   }
 }

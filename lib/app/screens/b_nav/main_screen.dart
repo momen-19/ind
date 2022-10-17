@@ -24,37 +24,12 @@ class _MainScreenState extends State<MainScreen> {
     BnScreen(screens: const HomeScreen(), title: 'Home'),
     BnScreen(screens: const CategoriesScreen(), title: 'Categories'),
     BnScreen(screens: const SearchScreen(), title: 'Search'),
-    BnScreen(screens: const ProductScreen(), title: 'Products'),
+    BnScreen(screens: const ProductsScreen(), title: 'Products'),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
-        elevation: 0,
-        title: Text(_screens[_index].title,
-            style: const TextStyle(color: Colors.white)),
-        centerTitle: true,
-        actions: [
-          Visibility(
-            visible: _index == 3,
-            child: IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AddProductPage(),
-                  ),
-                );
-              },
-              icon: const Icon(
-                Icons.add,
-              ),
-            ),
-          ),
-        ],
-      ),
       body: _screens[_index].screens,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,

@@ -26,7 +26,7 @@ class ProductDetailsPage extends ConsumerWidget {
             curve: Curves.easeInOut,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
+              child: ListView(
                 children: [
                   Stack(
                     children: [
@@ -136,9 +136,8 @@ class ProductDetailsPage extends ConsumerWidget {
                       color: Colors.teal,
                     ),
                   ),
-                  const Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
+                    padding: const EdgeInsets.only(bottom: 15,top: 120),
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -147,8 +146,13 @@ class ProductDetailsPage extends ConsumerWidget {
                           50,
                         ),
                       ),
-                      child: const Text(
-                        'Add Cart',
+                      child:  Text(
+                        'Add Cart'.toUpperCase(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          letterSpacing: 1.2
+                        ),
                       ),
                     ),
                   ),

@@ -4,6 +4,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:interceptors/products/pages/product_details_page.dart';
 import 'package:interceptors/products/product_controller.dart';
 
+import 'add_product_page.dart';
+
 class ProductsPage extends ConsumerWidget {
   const ProductsPage({
     Key? key,
@@ -13,6 +15,12 @@ class ProductsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(products);
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Products'),
+        leading: IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddProductPage(),));
+        },icon: Icon(Icons.add)),
+      ),
       body: state.when(
         loading: () => const Center(
           child: CircularProgressIndicator(),
